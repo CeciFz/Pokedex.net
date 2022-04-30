@@ -28,7 +28,7 @@ namespace Negocio
         public void setearConsulta(String consulta)
         {
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = consulta;  //La consulta va a ser la query, el select
+            comando.CommandText = consulta;  //La consulta va a ser la query
         }
 
         public void ejecutarLectura()
@@ -45,6 +45,22 @@ namespace Negocio
                 throw ex;
             }
             
+        }
+
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         public void cerrarConexion()
