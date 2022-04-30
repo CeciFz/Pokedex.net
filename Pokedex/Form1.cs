@@ -28,6 +28,8 @@ namespace Pokedex
             pbxPokemon.Load(listaPokemon[0].UrlImagen);
             dgvPokemons.Columns["UrlImagen"].Visible = false;
 
+            ElementoNegocio elem = new ElementoNegocio();
+            dgvElementos.DataSource = elem.listar();
             
         }
 

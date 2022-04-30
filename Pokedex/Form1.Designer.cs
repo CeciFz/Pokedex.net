@@ -30,8 +30,10 @@
         {
             this.dgvPokemons = new System.Windows.Forms.DataGridView();
             this.pbxPokemon = new System.Windows.Forms.PictureBox();
+            this.dgvElementos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPokemon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElementos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPokemons
@@ -52,11 +54,20 @@
             this.pbxPokemon.TabIndex = 1;
             this.pbxPokemon.TabStop = false;
             // 
+            // dgvElementos
+            // 
+            this.dgvElementos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvElementos.Location = new System.Drawing.Point(545, 290);
+            this.dgvElementos.Name = "dgvElementos";
+            this.dgvElementos.Size = new System.Drawing.Size(243, 150);
+            this.dgvElementos.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 325);
+            this.ClientSize = new System.Drawing.Size(800, 464);
+            this.Controls.Add(this.dgvElementos);
             this.Controls.Add(this.pbxPokemon);
             this.Controls.Add(this.dgvPokemons);
             this.Name = "Form1";
@@ -64,6 +75,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPokemon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElementos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -72,6 +84,7 @@
 
         private System.Windows.Forms.DataGridView dgvPokemons;
         private System.Windows.Forms.PictureBox pbxPokemon;
+        private System.Windows.Forms.DataGridView dgvElementos;
     }
 }
 
