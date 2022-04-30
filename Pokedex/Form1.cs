@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace Pokedex
 {
@@ -25,6 +27,7 @@ namespace Pokedex
             dgvPokemons.DataSource = listaPokemon;
             pbxPokemon.Load(listaPokemon[0].UrlImagen);
             dgvPokemons.Columns["UrlImagen"].Visible = false;
+
             
         }
 
