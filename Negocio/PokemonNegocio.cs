@@ -34,7 +34,18 @@ namespace Negocio
                     aux.Numero = lector.GetInt32(0);
                     aux.Nombre = (String) lector["Nombre"];
                     aux.Descripcion = (String) lector["Descripcion"];
-                    aux.UrlImagen = (String)lector["UrlImagen"];
+
+                    /* Validación de columna NULL:
+
+                     if (!(lector.IsDBNull(lector.GetOrdinal("UrlImagen"))))
+                         aux.UrlImagen = (String)lector["UrlImagen"];
+
+                     Otra opción de validación más corta: */
+
+                    if (!(lector["UrlImagen"] is DBNull))
+                        aux.UrlImagen = (String)lector["UrlImagen"];
+
+
                     aux.Tipo = new Elemento();
                     aux.Tipo.Descripcion = (String)lector["Tipo"]; 
                     aux.Debilidad = new Elemento();
