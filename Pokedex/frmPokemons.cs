@@ -12,10 +12,10 @@ using Negocio;
 
 namespace Pokedex
 {
-    public partial class Form1 : Form
+    public partial class frmPokemons : Form
     {
         private List<Pokemon> listaPokemon;
-        public Form1()
+        public frmPokemons()
         {
             InitializeComponent();
         }
