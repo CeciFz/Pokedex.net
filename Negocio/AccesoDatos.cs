@@ -31,6 +31,11 @@ namespace Negocio
             comando.CommandText = consulta;  //La consulta va a ser la query
         }
 
+        public void SetearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
         public void ejecutarLectura()
         {
             comando.Connection = conexion;

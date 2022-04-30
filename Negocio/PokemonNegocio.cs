@@ -59,12 +59,9 @@ namespace Negocio
 
             try
             {
-                /* Esta es la query "base" que quiero ejecutar:
-                 "Insert into POKEMONS (Numero, Nombre, Descripcion,Activo) values (1,'','',1)"
-                la parte de values la reemplazo por los valores que ingresó el usuario
-                */
-                datos.setearConsulta("Insert into POKEMONS (Numero, Nombre, Descripcion,Activo) values (" + nuevo.Numero + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion + "',1)");
-
+                datos.setearConsulta("Insert into POKEMONS (Numero, Nombre, Descripcion,Activo,IdTipo,IdDebilidad) values (" + nuevo.Numero + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion + "',1,@idTipo, @idDebilidad)");
+                datos.SetearParametro("@idTipo", nuevo.Tipo.Id);
+                datos.SetearParametro("@idDebilidad", nuevo.Debilidad.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
