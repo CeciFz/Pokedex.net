@@ -36,6 +36,7 @@ namespace Pokedex
                 poke.Numero = int.Parse(txtNumero.Text);
                 poke.Nombre = txtNombre.Text;
                 poke.Descripcion = txtDescripcion.Text;
+                poke.UrlImagen = txtUrlImagen.Text; 
                 poke.Tipo = (Elemento)cboTipo.SelectedItem;
                 poke.Debilidad = (Elemento)cboTipo.SelectedItem;
 
@@ -66,6 +67,23 @@ namespace Pokedex
             {
 
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void txtUrlImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtUrlImagen.Text);
+        }
+
+        private void cargarImagen (string imagen)
+        {
+            try
+            {
+                pbxUrlImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxUrlImagen.Load("https://www.blackwallst.directory/images/NoImageAvailable.png");
             }
         }
     }

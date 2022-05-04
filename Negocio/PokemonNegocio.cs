@@ -70,7 +70,8 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("Insert into POKEMONS (Numero, Nombre, Descripcion,Activo,IdTipo,IdDebilidad) values (" + nuevo.Numero + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion + "',1,@idTipo, @idDebilidad)");
+                datos.setearConsulta("Insert into POKEMONS (Numero, Nombre, Descripcion,Activo,IdTipo,IdDebilidad,UrlImagen) values (" + nuevo.Numero + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion + "',1,@idTipo, @idDebilidad, @UrlImagen)");
+                datos.SetearParametro("UrlImagen", nuevo.UrlImagen);
                 datos.SetearParametro("@idTipo", nuevo.Tipo.Id);
                 datos.SetearParametro("@idDebilidad", nuevo.Debilidad.Id);
                 datos.ejecutarAccion();
