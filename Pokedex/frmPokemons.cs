@@ -22,15 +22,24 @@ namespace Pokedex
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PokemonNegocio negocio = new PokemonNegocio();
-            listaPokemon = negocio.listar();
-            dgvPokemons.DataSource = listaPokemon;
-            pbxPokemon.Load(listaPokemon[0].UrlImagen);
-            dgvPokemons.Columns["UrlImagen"].Visible = false;
+            cargar();          
+        }
 
-            ElementoNegocio elem = new ElementoNegocio();
-            dgvElementos.DataSource = elem.listar();
-            
+        private void cargar()
+        {
+            PokemonNegocio negocio = new PokemonNegocio();
+            try
+            {
+                listaPokemon = negocio.listar();
+                dgvPokemons.DataSource = listaPokemon;
+                pbxPokemon.Load(listaPokemon[0].UrlImagen);
+                dgvPokemons.Columns["UrlImagen"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void dgvPokemons_SelectionChanged(object sender, EventArgs e)
@@ -56,6 +65,7 @@ namespace Pokedex
         {
             frmAltaPokemon alta = new frmAltaPokemon(); 
             alta.ShowDialog();
+            cargar();
         }
     }
 }

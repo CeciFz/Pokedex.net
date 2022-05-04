@@ -29,3 +29,5 @@ SELECT Numero, Nombre, P.Descripcion, UrlImagen, E.Descripcion Tipo, D.Descripci
 Insert into POKEMONS (Numero, Nombre, Descripcion,Activo) values (1,'','',1)
 
 update POKEMONS set IdTipo = 1 , IdDebilidad = 2 , UrlImagen = '' where Numero = 27
+
+update POKEMONS set UrlImagen = null where Numero = 9
