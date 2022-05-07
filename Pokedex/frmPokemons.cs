@@ -34,6 +34,7 @@ namespace Pokedex
                 dgvPokemons.DataSource = listaPokemon;
                 pbxPokemon.Load(listaPokemon[0].UrlImagen);
                 dgvPokemons.Columns["UrlImagen"].Visible = false;
+                dgvPokemons.Columns["Id"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -65,6 +66,15 @@ namespace Pokedex
         {
             frmAltaPokemon alta = new frmAltaPokemon(); 
             alta.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Pokemon seleccionado;
+            seleccionado = (Pokemon)dgvPokemons.CurrentRow.DataBoundItem;
+            frmAltaPokemon modificar = new frmAltaPokemon(seleccionado);
+            modificar.ShowDialog();
             cargar();
         }
     }
