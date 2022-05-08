@@ -32,6 +32,8 @@
             this.pbxPokemon = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminarFísica = new System.Windows.Forms.Button();
+            this.btnEliminarLogica = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPokemon)).BeginInit();
             this.SuspendLayout();
@@ -76,11 +78,32 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // btnEliminarFísica
+            // 
+            this.btnEliminarFísica.Location = new System.Drawing.Point(223, 290);
+            this.btnEliminarFísica.Name = "btnEliminarFísica";
+            this.btnEliminarFísica.Size = new System.Drawing.Size(149, 23);
+            this.btnEliminarFísica.TabIndex = 5;
+            this.btnEliminarFísica.Text = "Eliminar Física";
+            this.btnEliminarFísica.UseVisualStyleBackColor = true;
+            this.btnEliminarFísica.Click += new System.EventHandler(this.btnEliminarFísica_Click);
+            // 
+            // btnEliminarLogica
+            // 
+            this.btnEliminarLogica.Location = new System.Drawing.Point(394, 290);
+            this.btnEliminarLogica.Name = "btnEliminarLogica";
+            this.btnEliminarLogica.Size = new System.Drawing.Size(149, 23);
+            this.btnEliminarLogica.TabIndex = 6;
+            this.btnEliminarLogica.Text = "Eliminar Lógica";
+            this.btnEliminarLogica.UseVisualStyleBackColor = true;
+            // 
             // frmPokemons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 359);
+            this.Controls.Add(this.btnEliminarLogica);
+            this.Controls.Add(this.btnEliminarFísica);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbxPokemon);
@@ -100,6 +123,8 @@
         private System.Windows.Forms.PictureBox pbxPokemon;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminarFísica;
+        private System.Windows.Forms.Button btnEliminarLogica;
     }
 }
 
