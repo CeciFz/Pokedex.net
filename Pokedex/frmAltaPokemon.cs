@@ -39,9 +39,9 @@ namespace Pokedex
 
             try
             {
-                if (pokemon == null)   // Si apretaste aceptar y el pokemon estaba en nulo, es porque estabas agregando, no modificando. 
-                    pokemon = new Pokemon(); //Por eso instancio un pokemon sin "nada", para poder aignarle los valores de cero.
-                                             //
+                if (pokemon == null)   // Si apretaste aceptar y la variable pokemon estaba en nulo, es porque estabas agregando, no modificando. 
+                    pokemon = new Pokemon(); //Por eso instancio un pokemon, para poder asignarle los valores de cero.
+                                             
                 //captura datos ingresados y los transforma en obj tipo Pokemon
                 pokemon.Numero = int.Parse(txtNumero.Text);
                 pokemon.Nombre = txtNombre.Text;

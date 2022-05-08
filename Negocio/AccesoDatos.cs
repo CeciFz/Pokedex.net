@@ -14,7 +14,7 @@ namespace Negocio
         private SqlDataReader lector;
 
         //Property:
-        public SqlDataReader Lector // así tengo la posibilidad de leer el lector dese el exterior 
+        public SqlDataReader Lector // así tengo la posibilidad de leer el lector desde el exterior 
         {
             get { return lector; }
         }
