@@ -78,7 +78,24 @@ namespace Pokedex
             cargar();
         }
 
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            List<Pokemon> listaFiltrada;
+
+            listaFiltrada = new List<Pokemon>();
+        }
+        
         private void btnEliminarFísica_Click(object sender, EventArgs e)
+        {
+            eliminar(); 
+        }
+
+        private void btnEliminarLogica_Click(object sender, EventArgs e)
+        {
+            eliminar(true);
+        }
+
+        private void eliminar ( bool logico = false)
         {
             PokemonNegocio negocio = new PokemonNegocio();
             Pokemon seleccionado;
@@ -86,9 +103,15 @@ namespace Pokedex
             try
             {
                 DialogResult respuesta = MessageBox.Show("¿Queres eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes) {
+                if (respuesta == DialogResult.Yes)
+                {
                     seleccionado = (Pokemon)dgvPokemons.CurrentRow.DataBoundItem;
-                    negocio.eliminar(seleccionado.Id);
+                    
+                    if(logico)
+                        negocio.eliminarLogico(seleccionado.Id);
+                    else
+                        negocio.eliminar(seleccionado.Id);
+                    
                     cargar();
                 }
             }
