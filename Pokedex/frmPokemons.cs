@@ -32,9 +32,8 @@ namespace Pokedex
             {
                 listaPokemon = negocio.listar();
                 dgvPokemons.DataSource = listaPokemon;
+                ocultarColumnas();
                 pbxPokemon.Load(listaPokemon[0].UrlImagen);
-                dgvPokemons.Columns["UrlImagen"].Visible = false;
-                dgvPokemons.Columns["Id"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -43,10 +42,19 @@ namespace Pokedex
             }
         }
 
+        private void ocultarColumnas()
+        {
+            dgvPokemons.Columns["UrlImagen"].Visible = false;
+            dgvPokemons.Columns["Id"].Visible = false;
+        }
+
         private void dgvPokemons_SelectionChanged(object sender, EventArgs e)
         {
+            if (dgvPokemons.CurrentRow != null)
+            {
             Pokemon seleccionado = (Pokemon)dgvPokemons.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.UrlImagen);
+            }
         }
 
         private void cargarImagen( String imagen)
@@ -81,8 +89,17 @@ namespace Pokedex
         private void btnFiltro_Click(object sender, EventArgs e)
         {
             List<Pokemon> listaFiltrada;
+            string filtro = txtFiltro.Text;
 
-            listaFiltrada = new List<Pokemon>();
+            if (txtFiltro.Text != "")
+                listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            else
+                listaFiltrada = listaPokemon;
+            
+            dgvPokemons.DataSource = null;  
+            dgvPokemons.DataSource = listaFiltrada;
+            ocultarColumnas();
+
         }
         
         private void btnEliminarFísica_Click(object sender, EventArgs e)
