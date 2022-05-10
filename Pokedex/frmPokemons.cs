@@ -86,9 +86,9 @@ namespace Pokedex
             cargar();
         }
 
-        private void btnFiltro_Click(object sender, EventArgs e)
+        private void btnFiltro_Click(object sender, EventArgs e)     /// EL BOTON BUSCAR ESTA OCULTO
         {
-            List<Pokemon> listaFiltrada;
+           /* List<Pokemon> listaFiltrada;
             string filtro = txtFiltro.Text;
 
             if (txtFiltro.Text != "")
@@ -98,7 +98,7 @@ namespace Pokedex
             
             dgvPokemons.DataSource = null;  
             dgvPokemons.DataSource = listaFiltrada;
-            ocultarColumnas();
+            ocultarColumnas();*/
 
         }
         
@@ -137,6 +137,21 @@ namespace Pokedex
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Pokemon> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if (filtro.Length >= 3)
+                listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            else
+                listaFiltrada = listaPokemon;
+
+            dgvPokemons.DataSource = null;
+            dgvPokemons.DataSource = listaFiltrada;
+            ocultarColumnas();
         }
     }
 }

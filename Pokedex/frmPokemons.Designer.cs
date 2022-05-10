@@ -116,6 +116,7 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(205, 20);
             this.txtFiltro.TabIndex = 8;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnFiltro
             // 
@@ -125,6 +126,7 @@
             this.btnFiltro.TabIndex = 9;
             this.btnFiltro.Text = "Buscar";
             this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Visible = false;
             this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
             // 
             // frmPokemons
